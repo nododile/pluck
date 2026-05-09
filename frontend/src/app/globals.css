@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------- */
+/* Design tokens (CSS variables for dark-mode-aware values)                */
+/* ---------------------------------------------------------------------- */
+
+:root {
+  --canvas: #F0F4F7;
+  --surface: #FFFFFF;
+  --muted: #E2E8F0;
+  --border: rgba(15, 23, 42, 0.10);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --ink-primary: #0F172A;
+  --ink-secondary: #475569;
+  --ink-tertiary: #64748B;
+  --ink-on-primary: #FFFFFF;
+  --ring: rgba(15, 23, 42, 0.04);
+  --accent: #2563EB;
+  --accent-fg: #FFFFFF;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ---------------------------------------------------------------------- */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Selection styling */
+::selection {
+  background: var(--ink-primary);
+  color: var(--ink-on-primary);
+}
+
+/* Spinner used by IconLoader */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hide native search input clear/cancel buttons */
+input[type="text"]::-webkit-search-cancel-button,
+input[type="text"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Focus rings — keyboard only, never mouse */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--ink-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Disable focus ring on the input row's children — the row itself styles the focus */
+.input-row:focus-within {
+  border-color: var(--border-strong);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Reusable component classes                                              */
+/* ---------------------------------------------------------------------- */
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-all;
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+  .btn-primary:hover { opacity: 0.92; }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-medium transition-all;
+    background: var(--muted);
+    color: var(--ink-primary);
+  }
+  .btn-ghost:hover { background: var(--border); }
+  .btn-ghost:active { transform: scale(0.98); }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3 py-1.5 text-xs font-medium transition-all;
+    background: transparent;
+    color: var(--ink-primary);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { background: var(--muted); border-color: var(--border-strong); }
+  .btn-outline:active { transform: scale(0.98); }
+
+  .surface-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+  }
+}
