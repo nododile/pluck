@@ -73,7 +73,7 @@ Frontend will be running at http://localhost:3000.
 
 ## Design principles
 
-1. **Clarity first, personality second.** "Download" on the button — "Pluck" everywhere else.
+1. **Clarity first, personality second.** "Download" on the button  "Pluck" everywhere else.
 2. **Optimistic everything.** Metadata fetches the moment a valid URL appears, not when a button is clicked.
 3. **Zero bytes through us when avoidable.** Browser downloads directly from platform CDNs.
 4. **No state, no accounts, no logs.** Stateless backend, per-IP rate limiting only.
