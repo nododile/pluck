@@ -1,6 +1,6 @@
 # Pluck
 
-> Link: pluck-enn.pages.dev
+- Link: [Pluck It](pluck-enn.pages.dev)
 
 > /plʌk/ — verb. To take quickly and cleanly. Also us.
 
